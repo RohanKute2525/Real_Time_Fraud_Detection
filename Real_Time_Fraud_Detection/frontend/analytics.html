@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analytics | FraudGuard AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Fraud Analytics</h1>
+
+        <p>Real-time transaction and fraud analysis dashboard.</p>
+
+        <div class="analytics-cards">
+
+            <div class="analytics-card">
+                <h3>Total Transactions</h3>
+                <p id="totalTransactions">0</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Fraud Transactions</h3>
+                <p id="fraudTransactions">0</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Fraud Percentage</h3>
+                <p id="fraudPercentage">0%</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Approved</h3>
+                <p id="approvedTransactions">0</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Held</h3>
+                <p id="heldTransactions">0</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Blocked</h3>
+                <p id="blockedTransactions">0</p>
+            </div>
+
+        </div>
+
+        <div class="chart-container">
+            <h2>Risk Distribution</h2>
+
+            <canvas id="riskChart"></canvas>
+        </div>
+
+        <p id="analyticsStatus">Loading analytics...</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/analytics.js"></script>
+
+</body>
+</html>

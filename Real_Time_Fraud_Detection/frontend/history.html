@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transaction History | FraudGuard AI</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Transaction History</h1>
+
+            <div class="page-actions">
+                <button id="refreshHistoryBtn" type="button">
+                    Refresh
+                </button>
+
+                <button id="exportBtn" type="button">
+                    Export Transactions
+                </button>
+
+                <a href="/dashboard.html">
+                    Dashboard
+                </a>
+            </div>
+        </div>
+
+        <p id="historyStatus">
+            Loading transactions...
+        </p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>User ID</th>
+                        <th>Amount</th>
+                        <th>Payment Mode</th>
+                        <th>Risk Score</th>
+                        <th>Risk Level</th>
+                        <th>Decision</th>
+                        <th>Date &amp; Time</th>
+                    </tr>
+                </thead>
+
+                <tbody id="transactionTableBody">
+                    <tr>
+                        <td colspan="8">
+                            Loading transactions...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="/js/transaction_history.js"></script>
+
+</body>
+</html>

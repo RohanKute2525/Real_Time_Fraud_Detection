@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fraud Alerts | FraudGuard AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🚨 Fraud Alerts</h1>
+
+        <p>
+            Suspicious transactions detected by the fraud detection system.
+        </p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>User ID</th>
+                        <th>Amount</th>
+                        <th>Fraud Probability</th>
+                        <th>Risk Score</th>
+                        <th>Risk Level</th>
+                        <th>Decision</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+
+                <tbody id="alertsTableBody">
+                    <tr>
+                        <td colspan="8">Loading fraud alerts...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="js/fraud_alerts.js"></script>
+
+</body>
+</html>

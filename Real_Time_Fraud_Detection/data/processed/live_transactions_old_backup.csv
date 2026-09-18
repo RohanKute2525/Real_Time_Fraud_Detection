@@ -1,0 +1,4 @@
+transaction_id,user_id,device_id,transaction_amount,currency,payment_mode,merchant_category,transaction_city,transaction_hour,new_device,location_change,failed_attempts_24h,transactions_last_1h,ip_risk_score,vpn_used,international_transaction,fraud_probability,risk_score,risk_level,decision,risk_reasons,timestamp
+TXN-ACE746CEFC,U1001,D1001,50000000.0,INR,CARD,Shopping,pune,12,0,0,0,1,10.0,0,0,7.33,7.33,LOW,APPROVE,High transaction amount,2026-09-17 16:39:16
+TXN-6B3BE1D56B,U1001,D1001,50000000.0,INR,CARD,Shopping,pune,12,0,0,0,1,10.0,0,0,7.33,7.33,LOW,APPROVE,High transaction amount,2026-09-17 16:39:20
+TXN-8324F4CA8B,U1001,D1001,50000000.0,INR,CARD,Food,pune,12,0,0,0,1,10.0,0,0,7.51,7.51,LOW,APPROVE,High transaction amount,2026-09-17 16:39:43

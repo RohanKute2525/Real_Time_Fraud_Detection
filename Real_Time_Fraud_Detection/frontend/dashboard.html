@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FraudGuard AI | Dashboard</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <h2> FraudGuard AI</h2>
+
+        <a href="/dashboard.html" class="active">
+             Dashboard
+        </a>
+
+        <a href="/transactions.html">
+             Analyze Transaction
+        </a>
+
+        <a href="/transaction_history.html">
+             Transaction History
+        </a>
+
+        <a href="/fraud_alerts.html">
+            Fraud Alerts
+        </a>
+
+        <a href="/analytics.html">
+             Analytics
+        </a>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="page-header">
+
+            <div>
+                <h1>Fraud Monitoring Dashboard</h1>
+
+                <p>
+                    Real-time transaction monitoring and fraud analysis
+                </p>
+            </div>
+
+            <button
+                class="refresh-btn"
+                type="button"
+                onclick="refreshDashboard()">
+
+                 Refresh Dashboard
+
+            </button>
+
+        </header>
+
+        <div
+            id="dashboardAlertBox"
+            class="dashboard-alert-box"
+            role="alert">
+        </div>
+
+        <section class="analytics-cards">
+
+            <div class="analytics-card">
+                <h3>Total Transactions</h3>
+                <h2 id="totalTransactions">0</h2>
+                <p>All recorded transactions</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Fraudulent Transactions</h3>
+                <h2 id="fraudTransactions">0</h2>
+                <p>Flagged transactions</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Approved</h3>
+                <h2 id="approvedTransactions">0</h2>
+                <p>Approved transactions</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Blocked</h3>
+                <h2 id="blockedTransactions">0</h2>
+                <p>Blocked transactions</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Held</h3>
+                <h2 id="heldTransactions">0</h2>
+                <p>Pending verification</p>
+            </div>
+
+            <div class="analytics-card">
+                <h3>Fraud Percentage</h3>
+                <h2 id="fraudPercentage">0%</h2>
+                <p>Fraud rate</p>
+            </div>
+
+        </section>
+
+        <section class="latest-transaction">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Latest Transaction</h2>
+                    <p>Most recently analyzed transaction</p>
+                </div>
+
+                <span id="latestRiskLevel" class="risk-badge waiting">
+                    WAITING
+                </span>
+
+            </div>
+
+            <div class="latest-transaction-grid">
+
+                <div>
+                    <span>Transaction ID</span>
+                    <strong id="latestTransactionId">
+                        No transaction
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Amount</span>
+                    <strong id="latestAmount">
+                        ?0.00
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Payment Mode</span>
+                    <strong id="latestPaymentMode">
+                        -
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Location</span>
+                    <strong id="latestLocation">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+            <div class="latest-risk-box">
+
+                <h3>
+                    Fraud Probability:
+                    <strong id="latestFraudProbability">
+                        0.00%
+                    </strong>
+                </h3>
+
+                <div class="risk-progress">
+                    <div
+                        id="latestRiskProgress"
+                        class="risk-progress-bar">
+                    </div>
+                </div>
+
+                <p>
+                    Risk Score:
+                    <strong id="latestRiskScore">
+                        0.00 / 100
+                    </strong>
+                </p>
+
+                <p>
+                    Decision:
+                    <strong id="latestDecision">
+                        WAITING
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="chart-container">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Risk Distribution</h2>
+                    <p>Transaction risk-level overview</p>
+                </div>
+
+                <button
+                    type="button"
+                    onclick="loadDashboard()">
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+            <div class="chart-wrapper">
+                <canvas id="riskChart"></canvas>
+            </div>
+
+        </section>
+
+        <section class="recent-transactions">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Recent Transactions</h2>
+                    <p>Latest recorded transactions</p>
+                </div>
+
+                <button
+                    type="button"
+                    onclick="loadRecentTransactions()">
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>User ID</th>
+                            <th>Amount</th>
+                            <th>Risk Score</th>
+                            <th>Risk Level</th>
+                            <th>Decision</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="recentTransactionsBody">
+
+                        <tr>
+                            <td colspan="7">
+                                Loading transactions...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <div class="status-container">
+
+            <span class="status-indicator"></span>
+
+            <p id="dashboardStatus">
+                Loading dashboard...
+            </p>
+
+        </div>
+
+    </main>
+
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>

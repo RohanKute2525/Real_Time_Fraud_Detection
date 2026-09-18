@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Fraud Analysis</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>CSV Fraud Analysis</h1>
+
+    <input type="file" id="csvFile" accept=".csv">
+
+    <button onclick="uploadCSV()">Upload and Analyze</button>
+
+    <p id="uploadStatus"></p>
+
+    <div id="summary"></div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Amount</th>
+                <th>Fraud Probability</th>
+                <th>Risk Score</th>
+                <th>Risk Level</th>
+                <th>Decision</th>
+            </tr>
+        </thead>
+
+        <tbody id="resultsBody"></tbody>
+    </table>
+
+    <script src="/js/csv_upload.js"></script>
+
+</body>
+</html>

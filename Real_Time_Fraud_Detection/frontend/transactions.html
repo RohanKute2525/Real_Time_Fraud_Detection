@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analyze Transaction | FraudGuard AI</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <h2> FraudGuard AI</h2>
+
+        <a href="/index.html"> Dashboard</a>
+
+        <a class="active" href="/transactions.html">
+             Analyze Transaction
+        </a>
+
+        <a href="/transaction_history.html">
+             Transaction History
+        </a>
+
+        <a href="/fraud_alerts.html">
+             Fraud Alerts
+        </a>
+
+        <a href="/analytics.html">
+             Analytics
+        </a>
+
+        <div class="system">
+            <span class="online"></span>
+            System Online
+        </div>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header>
+            <div>
+                <h1>Analyze Transaction</h1>
+
+                <p>
+                    Evaluate transaction risk using machine learning
+                    and rule-based risk analysis.
+                </p>
+            </div>
+
+            <button class="live" type="button">
+                 LIVE
+            </button>
+        </header>
+
+
+        <!-- Transaction Form -->
+
+        <section class="panel">
+
+            <h2>Transaction Details</h2>
+
+            <form id="transactionForm">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label for="user_id">User ID</label>
+
+                        <input
+                            type="text"
+                            id="user_id"
+                            placeholder="Enter user ID"
+                            autocomplete="off"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="device_id">Device ID</label>
+
+                        <input
+                            type="text"
+                            id="device_id"
+                            placeholder="Enter device ID"
+                            autocomplete="off"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="transaction_amount">
+                            Transaction Amount (?)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="transaction_amount"
+                            placeholder="Enter amount"
+                            min="1"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="payment_mode">
+                            Payment Mode
+                        </label>
+
+                        <select id="payment_mode" required>
+                            <option value="">
+                                Select payment mode
+                            </option>
+
+                            <option value="UPI">UPI</option>
+                            <option value="CARD">Card</option>
+                            <option value="NET_BANKING">
+                                Net Banking
+                            </option>
+                            <option value="WALLET">Wallet</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="merchant_category">
+                            Merchant Category
+                        </label>
+
+                        <select id="merchant_category" required>
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Grocery">Grocery</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Entertainment">
+                                Entertainment
+                            </option>
+                            <option value="Food">Food</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label for="transaction_city">
+                            Transaction City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="transaction_city"
+                            placeholder="Enter city"
+                            autocomplete="off"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="transaction_hour">
+                            Transaction Hour
+                        </label>
+
+                        <input
+                            type="number"
+                            id="transaction_hour"
+                            min="0"
+                            max="23"
+                            value="12"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="failed_attempts_24h">
+                            Failed Attempts in 24 Hours
+                        </label>
+
+                        <input
+                            type="number"
+                            id="failed_attempts_24h"
+                            min="0"
+                            value="0"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="transactions_last_1h">
+                            Transactions in Last 1 Hour
+                        </label>
+
+                        <input
+                            type="number"
+                            id="transactions_last_1h"
+                            min="0"
+                            value="1"
+                            required
+                        >
+                    </div>
+
+
+                    <div>
+                        <label for="ip_risk_score">
+                            IP Risk Score
+                        </label>
+
+                        <input
+                            type="number"
+                            id="ip_risk_score"
+                            min="0"
+                            max="100"
+                            value="10"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- Risk Indicators -->
+
+                <h3 class="section-heading">
+                    Risk Indicators
+                </h3>
+
+                <div class="checkbox-grid">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="new_device"
+                        >
+                          New Device
+                    </label>
+
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="location_change"
+                        >
+                         Location Changed
+                    </label>
+
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="vpn_used"
+                        >
+                         VPN Used
+                    </label>
+
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="international_transaction"
+                        >
+                         International Transaction
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="analyzeButton"
+                >
+                     Analyze Transaction
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Analysis Result -->
+
+        <section
+            class="panel result-panel"
+            id="resultPanel"
+        >
+
+            <h2> Analysis Result</h2>
+
+            <div
+                id="resultMessage"
+                class="result-message"
+                role="status"
+                aria-live="polite"
+            >
+                Submit a transaction to view the fraud analysis.
+            </div>
+
+
+            <!-- Visible Fraud Alert -->
+
+            <div
+                id="fraudAlertBox"
+                class="fraud-alert-box"
+                role="alert"
+                aria-live="assertive"
+            ></div>
+
+
+            <!-- Result Cards -->
+
+            <div class="result-grid">
+
+                <div class="probability-card">
+                    <span>Fraud Probability</span>
+                    <strong id="resultProbability">-</strong>
+                </div>
+
+
+                <div class="score-card">
+                    <span>Risk Score</span>
+                    <strong id="resultRiskScore">-</strong>
+                </div>
+
+
+                <div class="risk-card">
+                    <span>Risk Level</span>
+                    <strong id="resultRiskLevel">-</strong>
+                </div>
+
+
+                <div class="decision-card">
+                    <span>Decision</span>
+                    <strong id="resultDecision">-</strong>
+                </div>
+
+            </div>
+
+
+            <!-- Risk Reasons -->
+
+            <div class="risk-reasons">
+
+                <h2> Risk Reasons</h2>
+
+                <ul id="riskReasonsList">
+                    <li>No risk analysis available</li>
+                </ul>
+
+            </div>
+
+
+            <!-- Recommended Action -->
+
+            <div class="recommendation-box">
+
+                <h2> Recommended Action</h2>
+
+                <p id="recommendationText">
+                    No recommendation available.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/transactions.js"></script>
+
+</body>
+
+</html>

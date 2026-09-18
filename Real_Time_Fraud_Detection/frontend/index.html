@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FraudGuard AI | Real-Time Fraud Detection</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>🛡 FraudGuard</h2>
+
+        <a class="active" href="index.html">Dashboard</a>
+        <a href="transactions.html">Analyze Transaction</a>
+        <a href="history.html">Transaction History</a>
+        <a href="alerts.html">Fraud Alerts</a>
+        <a href="analytics.html">Analytics</a>
+        <div class="system">
+            <span class="online"></span>
+            System Online
+        </div>
+
+    </div>
+
+
+    <div class="main">
+
+        <header>
+
+            <div>
+                <h1>Real-Time Fraud Detection</h1>
+                <p>AI-powered transaction monitoring system</p>
+            </div>
+
+            <button class="live">● LIVE</button>
+
+        </header>
+
+
+        <!-- Statistics Cards -->
+
+        <section class="cards">
+
+            <div class="card">
+                <span>Total Transactions</span>
+                <h2 id="totalTransactions">0</h2>
+                <p>Dataset + live records</p>
+            </div>
+
+            <div class="card">
+                <span>Fraud Detected</span>
+                <h2 id="fraudTransactions">0</h2>
+                <p id="fraudPercentage">Calculating...</p>
+            </div>
+
+            <div class="card">
+                <span>Blocked</span>
+                <h2 id="blockedTransactions">0</h2>
+                <p>Transactions blocked</p>
+            </div>
+
+            <div class="card">
+                <span>On Hold</span>
+                <h2 id="holdTransactions">0</h2>
+                <p>Requires verification</p>
+            </div>
+
+        </section>
+
+
+        <!-- Latest Transaction and AI Analysis -->
+
+        <section class="grid">
+
+            <!-- Latest Transaction -->
+
+            <div class="panel transaction">
+
+                <div class="panel-title">
+                    <h2>Latest Transaction</h2>
+                    <span class="high" id="latestRiskLevel">WAITING</span>
+                </div>
+
+                <div class="transaction-info">
+
+                    <div>
+                        <label>Transaction ID</label>
+                        <strong id="latestTransactionId">
+                            No transaction
+                        </strong>
+                    </div>
+
+                    <div>
+                        <label>Amount</label>
+                        <strong id="latestAmount">₹0</strong>
+                    </div>
+
+                    <div>
+                        <label>Payment Mode</label>
+                        <strong id="latestPaymentMode">-</strong>
+                    </div>
+
+                    <div>
+                        <label>Location</label>
+                        <strong id="latestLocation">-</strong>
+                    </div>
+
+                </div>
+
+                <div class="risk-box">
+
+                    <div>
+                        <span>Fraud Probability</span>
+                        <strong id="latestProbability">0%</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div id="riskProgress" style="width: 0%;"></div>
+                    </div>
+
+                    <div class="risk-score">
+                        Risk Score:
+                        <b id="latestRiskScore">0 / 100</b>
+                    </div>
+
+                </div>
+
+                <div class="decision" id="latestDecision">
+                    No transaction analyzed yet
+                </div>
+
+            </div>
+
+
+            <!-- AI Risk Analysis -->
+
+            <div class="panel">
+
+                <div class="panel-title">
+                    <h2>AI Risk Analysis</h2>
+                    <span>ML Model</span>
+                </div>
+
+                <div class="reason">
+                    <span>✓</span>
+                    Unusual transaction amount
+                </div>
+
+                <div class="reason">
+                    <span>✓</span>
+                    New device detection
+                </div>
+
+                <div class="reason">
+                    <span>✓</span>
+                    Unusual transaction time
+                </div>
+
+                <div class="reason">
+                    <span>✓</span>
+                    Location anomaly detection
+                </div>
+
+                <div class="reason">
+                    <span>✓</span>
+                    Multiple failed attempts
+                </div>
+
+                <p class="analysis-note">
+                    Risk indicators are evaluated by the fraud detection model.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Recent Transactions -->
+
+        <section class="panel">
+
+            <div class="panel-title">
+
+                <h2>Recent Transactions</h2>
+
+                <a href="history.html">View All</a>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Amount</th>
+                            <th>Risk</th>
+                            <th>Type</th>
+                            <th>Decision</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="recentTransactionsBody">
+
+                        <tr>
+                            <td colspan="5">
+                                Loading transactions...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
